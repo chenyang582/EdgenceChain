@@ -98,7 +98,7 @@ class EdgenceChain(object):
                 version=0,
                 prev_block_hash=prev_block_hash,
                 merkle_hash='',
-                timestamp=int(time.time()),
+                timestamp=time.time(),
                 bits= Block.get_next_work_required(prev_block_hash, self.active_chain, self.side_branches),
                 nonce=0,
                 txns=[None, *txns] if txns else [None],

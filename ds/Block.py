@@ -51,7 +51,7 @@ class Block(NamedTuple):
     version: int
     prev_block_hash: str
     merkle_hash: str
-    timestamp: int
+    timestamp: float
     bits: int
     nonce: int
     txns: Iterable[Transaction]
@@ -79,9 +79,9 @@ class Block(NamedTuple):
                     '232352c204a69617169204c69752c2078696179756e696c0a',
             prev_block_hash=None,
             merkle_hash='8cfb8d2d2ed9343461b0eefb73c775b9366a32e05e81b0e8946620e2f1935507',
-            timestamp=1554460209,
+            timestamp=float.fromhex('0x1.7304b0ffae89cp+30'),
             bits=Params.INITIAL_DIFFICULTY_BITS,
-            nonce=17040052,
+            nonce=19399657,
             txns=[Transaction(
                 txins=[TxIn(
                     to_spend=None, unlock_sig=b'0', unlock_pk=None, sequence=0)],
@@ -225,7 +225,7 @@ class Block(NamedTuple):
 
         if not self.prev_block_hash and active_chain.height == 1 and self.id == active_chain.chain[0].id:
             # this block is the genesis block
-            if self.timestamp >= int(time.time()):
+            if self.timestamp >= time.time():
                 raise BlockValidationError(f'timestamp of genesis block should not be newer than current time')
             if self.bits != Params.INITIAL_DIFFICULTY_BITS:
                 raise BlockValidationError(f'bits of genesis block is incorrect, so the node cannot be builded successfully')

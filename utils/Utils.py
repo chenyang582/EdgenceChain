@@ -35,7 +35,7 @@ class Utils(object):
                 return [contents_to_primitive(i) for i in o]
             elif isinstance(o, bytes):
                 return binascii.hexlify(o).decode()
-            elif not isinstance(o, (dict, bytes, str, int, type(None))):
+            elif not isinstance(o, (dict, bytes, str, int, float,type(None))):
                 raise ValueError(f"Can't serialize {o}")
             if isinstance(o, Mapping):
                 for k, v in o.items():
