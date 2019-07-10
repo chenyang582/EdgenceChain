@@ -80,17 +80,19 @@ class Block(NamedTuple):
                     '2c204c6561684c69752c207069616f6c69616e676b622c2053616c7661746f7265303632362c2053696c7669614c69313'
                     '232352c204a69617169204c69752c2078696179756e696c0a',
             prev_block_hash=None,
-            merkle_hash='b7b51d3818055321711cf3049b7067afb7d5cbddacc6c106ca92906974316b14',
+            merkle_hash='a578b7a3bdc2d1385bce32a445a8ec4ffb9ab78b76afc30f53787b3189be289c',
             timestamp=1554460209,
             bits=Params.INITIAL_DIFFICULTY_BITS,
-            nonce=5808524,
+            nonce=41912381,
             txns=[Transaction(
                 txins=[TxIn(
                     to_spend=None, signature_script=b'0', sequence=0)],
                 txouts=[TxOut(
                     value=5000000000, pk_script=scriptBuild.get_pk_script('1NY36FKZqM97oEobfCewhUpHsbzAUSifzo')
                     )],
-                locktime=None)]
+                locktime=None,
+                serviceId=None,postId=None,actionId=None,data=None
+                )]
         )
 
 
